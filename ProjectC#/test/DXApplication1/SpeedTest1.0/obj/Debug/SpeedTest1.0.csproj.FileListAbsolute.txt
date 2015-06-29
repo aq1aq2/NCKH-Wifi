@@ -1,0 +1,3 @@
+C:\Users\minh\Documents\Visual Studio 2013\Projects\test\DXApplication1\SpeedTest1.0\obj\Debug\SpeedTest1.0.csprojResolveAssemblyReference.cache
+C:\Users\minh\Documents\Visual Studio 2013\Projects\test\DXApplication1\SpeedTest1.0\obj\Debug\SpeedTest1._0.Properties.Resources.resources
+C:\Users\minh\Documents\Visual Studio 2013\Projects\test\DXApplication1\SpeedTest1.0\obj\Debug\SpeedTest1.0.csproj.GenerateResource.Cache
