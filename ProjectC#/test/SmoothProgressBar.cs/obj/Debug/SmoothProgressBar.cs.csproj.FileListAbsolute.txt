@@ -1,0 +1,7 @@
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\bin\Debug\SmoothProgressBar.cs.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\bin\Debug\SmoothProgressBar.cs.pdb
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\obj\Debug\SmoothProgressBar.cs.ProgressBar.resources
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\obj\Debug\SmoothProgressBar.cs.csproj.GenerateResource.Cache
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\obj\Debug\SmoothProgressBar.cs.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\obj\Debug\SmoothProgressBar.cs.pdb
+C:\Users\minh\documents\visual studio 2013\Projects\test\SmoothProgressBar.cs\obj\Debug\SmoothProgressBar.cs.csprojResolveAssemblyReference.cache

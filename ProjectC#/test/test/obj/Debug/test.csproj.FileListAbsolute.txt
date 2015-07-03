@@ -1,7 +1,7 @@
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\test.exe.config
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\test.exe
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\test.pdb
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.csproj.ResolveComReference.cache
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.Form1.resources
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.Properties.Resources.resources
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.WelcomeScreen.resources
@@ -9,9 +9,9 @@ C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.csp
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.exe.licenses
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.exe
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.pdb
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\Interop.GlgoleLib.dll
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\AxInterop.GlgoleLib.dll
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.csproj.ResolveComReference.cache
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\Interop.GlgoleLib.dll
-C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\AxInterop.GlgoleLib.dll
 C:\Users\minh\documents\visual studio 2013\Projects\test\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\CustomProgress.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\CustomProgress.pdb
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\SignalStrengthMeter.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\SmoothProgressBar.cs.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\test\bin\Debug\SmoothProgressBar.cs.pdb

@@ -1,0 +1,7 @@
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\obj\Debug\CustomProgress.CustomProgressCircle.resources
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\obj\Debug\CustomProgress.csproj.GenerateResource.Cache
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\bin\Debug\CustomProgress.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\bin\Debug\CustomProgress.pdb
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\obj\Debug\CustomProgress.dll
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\obj\Debug\CustomProgress.pdb
+C:\Users\minh\documents\visual studio 2013\Projects\test\CustomProgress\obj\Debug\CustomProgress.csprojResolveAssemblyReference.cache

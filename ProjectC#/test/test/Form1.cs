@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar.Metro;
-using DevExpress.XtraCharts;
+﻿using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -12,24 +11,27 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-
+using NativeWifi;
 
 
 namespace test
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             //Thread welcome_thread = new Thread(new ThreadStart(welcome));
           //  welcome_thread.Start();
             //Thread.Sleep(12000);
             InitializeComponent();
+            // initialize for background worker set signal
             bgworker_setsignal.DoWork += bgworker_setsignal_DoWork;
             bgworker_setsignal.RunWorkerCompleted += bgworker_setsignal_RunWorkerCompleted;
             bgworker_setsignal.ProgressChanged += bgworker_setsignal_ProgressChanged;
             bgworker_setsignal.WorkerReportsProgress = true;
             bgworker_setsignal.WorkerSupportsCancellation = true;
+            
 
             //welcome_thread.Abort();
             
@@ -65,10 +67,7 @@ namespace test
 
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -128,29 +127,23 @@ namespace test
 
         private void xtraTab_dashboard_Paint(object sender, PaintEventArgs e)
         {
-          
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // gán dữ liệu cho chartControl1
-            chartControl1.Series.Clear();
-            
-            Series s = new Series("Speed",ViewType.SplineArea)
+           
+
+            if (bgworker_setsignal.IsBusy)
             {
-                
-                DataSource = ChartControl.ExcelRead.OpenFile("t.xlsx"),
-                ArgumentScaleType = ScaleType.Qualitative,
-                ArgumentDataMember = "Cot1",
-                ValueScaleType = ScaleType.Numerical
+                bgworker_setsignal.CancelAsync();
 
-            };
+            }
+            else
+            {
+                bgworker_setsignal.RunWorkerAsync();
 
-            
-            s.ValueDataMembers.AddRange(new string[] { "Cot1" });
-            chartControl1.Series.Add(s);
-            chartControl1.RefreshData();
-
+            }
         }
 
         private void pictureBox5_MouseLeave(object sender, EventArgs e)
@@ -180,16 +173,7 @@ namespace test
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-            if (bgworker_setsignal.IsBusy)
-            {
-                bgworker_setsignal.CancelAsync();
-
-            }
-            else
-            {
-                bgworker_setsignal.RunWorkerAsync();
-
-            }
+            
 
         }
 
@@ -202,6 +186,8 @@ namespace test
         }
         private void bgworker_setsignal_DoWork(object sender, DoWorkEventArgs e)
         {
+            
+
             Process proc = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -213,8 +199,9 @@ namespace test
                     CreateNoWindow = true
                 }
             };
-            while (true)
-            {
+                
+           while (true)
+             {
                 proc.Start();
                 string line;
                 int strength = 0;
@@ -223,28 +210,46 @@ namespace test
                     line = proc.StandardOutput.ReadLine();
                     if (line.Contains("Signal"))
                     {
-                        //  label1.Text = line.Split(':')[1];
                         string tmp = line.Split(':')[1].Split('%')[0];
                         Int32.TryParse(tmp, out strength);
-                        bgworker_setsignal.ReportProgress(strength);
+                        break;
                     }
+                  
                 }
+              
+                bgworker_setsignal.ReportProgress(strength);
+
             }
 
         }
         private void bgworker_setsignal_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            procbar_signal.Value = e.ProgressPercentage;
+            if (e.ProgressPercentage != 0)
+            {
+                speedtest_lb_signal.Text = e.ProgressPercentage+"%";
+                dashboard_lb_signal.Text = e.ProgressPercentage + "%";
+                //procbar_signal.Value = e.ProgressPercentage;
+                signalStrength1.Value = e.ProgressPercentage;
+                signalStrength2.Value = e.ProgressPercentage;
+               
+
+            }
+            else
+            {
+                signalStrength1.Value = e.ProgressPercentage;
+                signalStrength2.Value = e.ProgressPercentage;
+                speedtest_lb_signal.Text = "No network connected !";
+                dashboard_lb_signal.Text = "No network connected !";
+                //procbar_signal.Value = e.ProgressPercentage;
+                
+            }
             
-            
-            lb_signal.Text = e.ProgressPercentage.ToString() + "%" ;
-            linearScaleComponent1.Value = e.ProgressPercentage;
         }
         //
 
         private void xtraTab_speedtest_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -309,11 +314,14 @@ namespace test
                 Int32.TryParse(wifiSignal[j].Split('%')[0], out sn);
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[j].Cells[0].Value = wifiName[j];
-                dataGridView1.Rows[j].Cells[0].ToolTipText = wifiName[j]+" Access point";
+                dataGridView1.Rows[j].Cells[0].ToolTipText = wifiName[j]+" access point";
                 dataGridView1.Rows[j].Cells[1].Value = wifiAuth[j];
-                dataGridView1.Rows[j].Cells[2].Value ="Đã bị giấu =]]]ưz";
+                dataGridView1.Rows[j].Cells[2].Value = wifiMacAdd[j];// wifiMacAdd[j];
                 dataGridView1.Rows[j].Cells[3].Value = sn;
-                dataGridView1.Rows[j].Cells[3].ToolTipText = "Signal strength "+wifiSignal[j];
+                dataGridView1.Rows[j].Cells[3].Style.ForeColor = Color.Red;
+                dataGridView1.Rows[j].Cells[3].ToolTipText = "Signal strength: "+wifiSignal[j];
+              
+                
                 
 
             }
@@ -323,7 +331,7 @@ namespace test
 
         private void xtraTab_signalstrength_Paint(object sender, PaintEventArgs e)
         {
-           // GetListAccessPoint();
+           
         }
 
         private void xtraTab_signalstrength_Enter(object sender, EventArgs e)
@@ -333,15 +341,99 @@ namespace test
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            MessageBox.Show("test");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
             GetListAccessPoint();
+            button1.Text = "Refresh";
+            button2.Enabled = true;
         }
 
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            button1.Text = "Scan";
+            button2.Enabled = false;
+        }
+
+        private void procbar_signal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gaugeControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+
+        {
+           // MessageBox.Show();
+
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("Connect to network",connect));
+                int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
+               
+                if (currentMouseOverRow >= 0)
+                {
+                    m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+                }
+                m.Show(dataGridView1, new Point(e.X, e.Y));
+
+            }
+
+        }
+        private void connect(object sender, EventArgs e)
+        {
+            
+        }
+
+        // Connect to Access point
+        /// Converts a 802.11 SSID to a string.
+        /// </summary>
+        
+        ///
+        
+
+
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
+        ///
+        //
 
     }
 }

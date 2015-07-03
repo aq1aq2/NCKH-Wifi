@@ -1,0 +1,7 @@
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\progress.baml
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\progress.g.cs
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\progressbar_MarkupCompile.cache
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\progressbar.g.resources
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\windows.g.cs
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\minh\documents\visual studio 2013\Projects\test\progressbar\obj\Debug\progressbar_MarkupCompile.lref

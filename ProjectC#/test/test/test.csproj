@@ -47,9 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2">
-      <HintPath>E:\PhanMem\DotNetBar_11.2.0.1\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -63,11 +60,18 @@
     <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v14.2.Win, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Tasks.v4.0" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Workflow.Compiler, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SignalStrengthMeter">
+      <HintPath>..\..\..\..\..\Desktop\SignalStrengthMeter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -87,9 +91,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bgWorkerInterfaces.cs" />
+    <Compile Include="DataGridViewProgressColumn.cs" />
     <Compile Include="ExcelRead.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -98,6 +104,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GetWifiInfo.cs" />
+    <Compile Include="Interop.cs" />
     <Compile Include="MyBackgroundWorker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +121,7 @@
     <Compile Include="WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="WlanApi.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +162,7 @@
   <ItemGroup>
     <Content Include="Resources\closebutton.png" />
     <Content Include="Resources\hover_close.png" />
+    <None Include="Resources\logo_ctu.gif" />
     <None Include="Resources\meter1.png" />
     <None Include="Resources\meter.png" />
     <None Include="Resources\QuickTest-hover1.png" />
@@ -203,6 +212,16 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomProgress\CustomProgress.csproj">
+      <Project>{CDF7D39C-E803-4E49-BA69-0AE0D02CA4B7}</Project>
+      <Name>CustomProgress</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoothProgressBar.cs\SmoothProgressBar.cs.csproj">
+      <Project>{A216D2B7-3823-4561-A490-89E921825059}</Project>
+      <Name>SmoothProgressBar.cs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
