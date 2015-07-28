@@ -1,0 +1,33 @@
+<resources>
+
+    <string name="app_name">Wifi Quality Manager</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_dashboard">Dashboard</string>
+    <string name="nav_item_speed_test">Speed Test</string>
+    <string name="nav_item_wifi_signal">Wifi Signal</string>
+    <string name="nav_item_history">History</string>
+    <string name="nav_item_setting">Setting</string>
+    <string name="nav_item_about">About</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_dashboard</item>
+        <item>@string/nav_item_speed_test</item>
+        <item>@string/nav_item_wifi_signal</item>
+        <item>@string/nav_item_history</item>
+        <item>@string/nav_item_setting</item>
+        <item>@string/nav_item_about</item>
+    </string-array>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_speed_test">Speed Test</string>
+    <string name="title_wifi_signal">Wifi Signal</string>
+    <string name="title_history">History</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_about">About</string>
+
+</resources>
